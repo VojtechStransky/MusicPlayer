@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="Player.User_Controls.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Player.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="230" d:DesignWidth="200">
+    <UserControl.Resources>
+        <Style x:Key="CircleButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="background"
+                                   Fill="{TemplateBinding Background}"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="background" Property="Opacity" Value="0.5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.Resources>
+
+        </Grid.Resources>
+
+        <Slider HorizontalAlignment="Left" Height="20" Margin="10,180,0,0" VerticalAlignment="Top" Width="180" x:Name="sliProgress" Thumb.DragStarted="sliProgress_DragStarted"  Thumb.DragCompleted="sliProgress_DragCompleted" ValueChanged="sliProgress_ValueChanged"/>
+        <TextBlock x:Name="FromStart" HorizontalAlignment="Left" Margin="10,203,0,0" Foreground="White" Text="00:00" TextWrapping="Wrap" Height="16" VerticalAlignment="Top"/>
+        <TextBlock x:Name="ToEnd" HorizontalAlignment="Right" Margin="0,203,15,0" Foreground="White" Text="00:00" TextWrapping="Wrap" Height="16" VerticalAlignment="Top"/>
+
+        <Button x:Name="Stop_button" Style="{StaticResource CircleButton}" Background="AliceBlue" Margin="40,45,0,0" Height="120" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120"  Click="Stop_button_Click">
+            <Image x:Name="image" Height="80" Width="80" Source="Play.png" Opacity="0.85"/>
+
+        </Button>
+
+        <Image x:Name="image1" Height="1" Width="1" Source="Stop.png" Panel.ZIndex="-2" Opacity="0"/>
+
+        <Button x:Name="Previous_button" Style="{StaticResource CircleButton}" HorizontalAlignment="Left" Height="35" Margin="10,130,0,0" VerticalAlignment="Top" Width="35" Click="Previous_button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Previous.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Next_button" Style="{StaticResource CircleButton}" HorizontalAlignment="Right" Height="35" Margin="0,130,10,0" VerticalAlignment="Top" Width="35" Click="Next_button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Next.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Shuffle_button" Style="{StaticResource CircleButton}" HorizontalAlignment="Right" Height="35" Margin="0,45,10,0" VerticalAlignment="Top" Width="35" Click="Shuffle_button_Click" Background="Gray">
+            <Image x:Name="image2" Height="26.8" Width="27" Source="random.png"/>
+        </Button>
+        <Button x:Name="Mute_button" Style="{StaticResource CircleButton}" HorizontalAlignment="Left" Height="35" Margin="10,45,0,0" VerticalAlignment="Top" Width="35" Background="Gray" Click="Mute_button_Click">
+            <Image x:Name="image3" Height="27" Width="27" Source="Up.png"/>
+        </Button>
+        
+
+        <Canvas  ClipToBounds="True" Name="canMain"
+                   Height="50" VerticalAlignment="Top" Margin="10,5,10,0" Width="180">
+            <TextBlock x:Name="Title"
+                   Height="40" Foreground="White"
+                   TextWrapping="NoWrap"
+                   Width="400" FontSize="24"/>
+        </Canvas>
+        <Image x:Name="image4" HorizontalAlignment="Left" Panel.ZIndex="-2" Opacity="0" Height="100" Margin="28,96,0,0" VerticalAlignment="Top" Width="100" Source="Down.png"/>
+
+
+    </Grid>
+</UserControl>

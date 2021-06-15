@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="User_Controls\Deska.png" />
+    <None Remove="User_Controls\Down.png" />
+    <None Remove="User_Controls\Next.png" />
+    <None Remove="User_Controls\Play.png" />
+    <None Remove="User_Controls\Previous.png" />
+    <None Remove="User_Controls\random.png" />
+    <None Remove="User_Controls\Stop.png" />
+    <None Remove="User_Controls\Up.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="taglib" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="User_Controls\Deska.png" />
+    <Resource Include="User_Controls\Down.png" />
+    <Resource Include="User_Controls\Next.png" />
+    <Resource Include="User_Controls\Play.png" />
+    <Resource Include="User_Controls\Previous.png" />
+    <Resource Include="User_Controls\random.png" />
+    <Resource Include="User_Controls\Stop.png" />
+    <Resource Include="User_Controls\Up.png" />
+  </ItemGroup>
+
+</Project>
